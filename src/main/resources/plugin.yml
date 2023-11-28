@@ -1,0 +1,10 @@
+name: RegionAPI
+version: '${project.version}'
+main: com.github.teraprath.region.plugin.RegionPlugin
+api-version: '1.20'
+authors: [TerryGHG]
+website: https://github.com/teraprath
+commands:
+  region:
+    description: Admin Command
+    permission: region.command
