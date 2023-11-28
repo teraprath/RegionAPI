@@ -3,7 +3,7 @@
 
 ## Implementation
 
-You can see the latest version [here](https://github.com/teraprath/StatsAPI/releases/latest).
+You can see the latest version [here](https://github.com/teraprath/RegionAPI/releases/latest).
 
 **Using Maven:**
 
