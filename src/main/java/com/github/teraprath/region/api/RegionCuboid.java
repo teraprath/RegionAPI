@@ -99,13 +99,13 @@ public abstract class RegionCuboid {
         return this.zMax - this.zMin + 1;
     }
 
-    public boolean isIn(final Location loc) {
+    public boolean contains(final Location loc) {
         return loc.getWorld() == this.world && loc.getBlockX() >= this.xMin && loc.getBlockX() <= this.xMax && loc.getBlockY() >= this.yMin && loc.getBlockY() <= this.yMax && loc
                 .getBlockZ() >= this.zMin && loc.getBlockZ() <= this.zMax;
     }
 
-    public boolean isIn(final Player player) {
-        return this.isIn(player.getLocation());
+    public boolean contains(final Player player) {
+        return this.contains(player.getLocation());
     }
 
     public boolean isInWithMarge(final Location loc, final double marge) {
