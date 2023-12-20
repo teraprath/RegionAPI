@@ -38,10 +38,19 @@ public class FileManager {
     public Region get(String key) {
         Location pos1 = config.getLocation(key + ".pos1");
         Location pos2 = config.getLocation(key + ".pos2");
+        String displayName = config.getString(key + ".displayName");
         if (pos1 != null && pos2 != null) {
-            return new Region(key, pos1, pos2);
+            Region region = new Region(key, pos1, pos2);
+            if (displayName != null) {
+                region.setDisplayName(displayName);
+            }
+            return region;
         }
         return null;
+    }
+
+    public String getDefaultDisplayName() {
+        return this.config.getString("default.displayName");
     }
 
     public void save(@Nonnull HashMap<String, Region> regions) {
@@ -52,6 +61,9 @@ public class FileManager {
             regions.forEach((name, region) -> {
                 this.config.set(name + ".pos1", region.getPos1());
                 this.config.set(name + ".pos2", region.getPos2());
+                if (region.getDisplayName() != null) {
+                    this.config.set(name + ".displayName", region.getDisplayName());
+                }
             });
             config.save(file);
             reload();

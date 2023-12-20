@@ -63,9 +63,16 @@ public class RegionCommand implements CommandExecutor, TabCompleter {
             sender.sendMessage("");
             sender.sendMessage("Regions");
             plugin.getAPI().getRegions().forEach(region -> {
-                sender.sendMessage("    - " + region.getName());
+                String row = "    - " + region.getName();
+                if (region.getDisplayName() != null) {
+                    row += " (" + region.getDisplayName()  + "§r)";
+                }
+                sender.sendMessage(row);
             });
             sender.sendMessage("");
+        } else if (args.length > 0 && args[0].equals("reload")) {
+            plugin.getAPI().reload();
+            sender.sendMessage("Configuration reloaded.");
         } else {
             showHelp(sender);
         }
@@ -83,6 +90,7 @@ public class RegionCommand implements CommandExecutor, TabCompleter {
                 list.add("save");
                 list.add("delete");
                 list.add("list");
+                list.add("reload");
                 break;
             case 2:
                 switch (args[0]) {

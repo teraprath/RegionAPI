@@ -1,5 +1,5 @@
 name: RegionAPI
-version: '${project.version}'
+version: '1.2.0'
 main: com.github.teraprath.region.plugin.RegionPlugin
 api-version: '1.20'
 authors: [TerryGHG]

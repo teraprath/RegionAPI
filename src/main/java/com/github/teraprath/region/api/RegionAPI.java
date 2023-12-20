@@ -12,6 +12,7 @@ public class RegionAPI {
     private final JavaPlugin plugin;
     private final HashMap<String, Region> regions;
     private FileManager manager;
+    private String defaultDisplayName;
 
     public RegionAPI(@Nonnull JavaPlugin plugin) {
         this.plugin = plugin;
@@ -26,7 +27,7 @@ public class RegionAPI {
             }
             this.regions.clear();
             this.manager = new FileManager(depend);
-            update();
+            reload();
         } else {
             plugin.getLogger().info("RegionsAPI is not installed! Download: https://github.com/teraprath/RegionsAPI/releases");
         }
@@ -63,10 +64,10 @@ public class RegionAPI {
 
     private void save() {
         manager.save(this.regions);
-        update();
+        reload();
     }
 
-    private void update() {
+    public void reload() {
         manager.reload();
         manager.getKeys().forEach(key -> {
             Region region = manager.get(key);
@@ -74,6 +75,11 @@ public class RegionAPI {
                 this.regions.put(key, region);
             }
         });
+        this.defaultDisplayName = manager.getDefaultDisplayName();
+    }
+
+    public String getDefaultDisplayName() {
+        return defaultDisplayName;
     }
 
 }
