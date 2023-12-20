@@ -1,9 +1,0 @@
-com/github/teraprath/region/api/Region.class
-com/github/teraprath/region/api/RegionAPI.class
-com/github/teraprath/region/plugin/RegionPlugin.class
-com/github/teraprath/region/listener/RegionListener.class
-com/github/teraprath/region/command/RegionCommand.class
-com/github/teraprath/region/manager/FileManager.class
-com/github/teraprath/region/api/RegionExtension.class
-com/github/teraprath/region/manager/SelectionManager.class
-com/github/teraprath/region/api/RegionCuboid.class
